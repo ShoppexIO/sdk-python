@@ -128,17 +128,24 @@ def parse_pagination(value: Any) -> CursorPagination | PagePagination | None:
 
     if "next_cursor" in value:
         next_cursor = value.get("next_cursor")
+        has_more = value.get("has_more")
         return CursorPagination(
-            has_more=bool(value.get("has_more")),
+            has_more=bool(has_more),
             next_cursor=next_cursor if isinstance(next_cursor, str) else None,
         )
 
+    page = value.get("page")
+    limit = value.get("limit")
+    total = value.get("total")
+    total_pages = value.get("total_pages")
+    has_more = value.get("has_more")
+
     return PagePagination(
-        page=value.get("page") if isinstance(value.get("page"), int) else None,
-        limit=value.get("limit") if isinstance(value.get("limit"), int) else None,
-        total=value.get("total") if isinstance(value.get("total"), int) else None,
-        total_pages=value.get("total_pages") if isinstance(value.get("total_pages"), int) else None,
-        has_more=bool(value.get("has_more")),
+        page=page if isinstance(page, int) else None,
+        limit=limit if isinstance(limit, int) else None,
+        total=total if isinstance(total, int) else None,
+        total_pages=total_pages if isinstance(total_pages, int) else None,
+        has_more=bool(has_more),
     )
 
 
