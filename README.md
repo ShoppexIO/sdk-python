@@ -2,6 +2,8 @@
 
 Official Python SDK for the Shoppex Developer API.
 
+This package is built for backend jobs, scripts, services, and automation that talk to `/dev/v1/*`.
+
 ## Install
 
 ```bash
@@ -26,10 +28,25 @@ Use one of these:
 - `api_key` for your own server-to-server integrations
 - `access_token` for OAuth app installs
 
-## Status
+## Included Services
 
-This SDK is in early public MVP stage.
-The package shape is in place, and the main next step is broadening endpoint coverage and polishing the response types.
+- `me`
+- `products`
+- `orders`
+- `customers`
+- `payments`
+- `invoices`
+- `coupons`
+- `webhooks`
+
+This covers the common backend workflows:
+
+- product reads and writes
+- order creation, completion, fulfillment, and refunds
+- customer reads and writes
+- payment and invoice flows
+- coupon checks and CRUD
+- webhook management and delivery logs
 
 ## Docs
 
